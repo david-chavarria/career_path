@@ -40,10 +40,16 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Hacer que el calendario ocupe toda la columna */
 .calendar-section {
     grid-row: 1 / 3;
     grid-column: 2 / 3;
+}
+
+.calendar-section .instruction {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 h2 {
@@ -53,11 +59,11 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* Estilos del Checklist */
+/* Checklist Styles */
 .checklist-section ul {
     list-style: none;
-    max-height: 300px; /* Altura máxima para evitar que sea muy largo */
-    overflow-y: auto; /* Scroll si es necesario */
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .checklist-section li {
@@ -68,7 +74,7 @@ h2 {
 
 .checklist-section input[type="checkbox"] {
     margin-right: 12px;
-    transform: scale(1.2); /* Hacer el checkbox un poco más grande */
+    transform: scale(1.2);
 }
 
 .checklist-section label {
@@ -82,7 +88,7 @@ h2 {
     color: #999;
 }
 
-/* Estilos del Calendario */
+/* Calendar Styles */
 .calendar {
     width: 100%;
 }
@@ -146,8 +152,9 @@ h2 {
 
 .days li {
     background-color: #fff;
-    min-height: 70px; /* Altura de las celdas */
-    transition: background-color 0.2s;
+    min-height: 70px;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer; /* Indica que se puede hacer clic */
 }
 
 .days li:hover {
@@ -163,9 +170,22 @@ h2 {
 .days .empty {
     background-color: #fafafa;
     opacity: 0.7;
+    cursor: default; /* No se puede hacer clic en días vacíos */
 }
 
-/* Responsivo para pantallas pequeñas */
+/* --- ¡NUEVO ESTILO! --- */
+.days .study-day {
+    background-color: #27ae60; /* Verde para día de estudio */
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.days .study-day:hover {
+    background-color: #2ecc71;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
     .dashboard {
         grid-template-columns: 1fr;
