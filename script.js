@@ -1,20 +1,15 @@
-// Espera a que todo el contenido HTML esté cargado
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- LÓGICA DEL CHECKLIST ---
-
+    // --- CHECKLIST LOGIC ---
     const checklist = document.getElementById('checklist');
     const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
 
-    // Función para guardar el progreso en el almacenamiento local
     function saveProgress() {
         checkboxes.forEach(checkbox => {
-            // Guarda el estado (true/false) de cada checkbox usando su 'id' como llave
             localStorage.setItem(checkbox.id, checkbox.checked);
         });
     }
 
-    // Función para cargar el progreso guardado
     function loadProgress() {
         checkboxes.forEach(checkbox => {
             const isChecked = localStorage.getItem(checkbox.id) === 'true';
@@ -22,77 +17,95 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Añade un "escuchador" a cada checkbox para guardar cuando cambie
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', saveProgress);
     });
 
-    // Carga el progreso guardado al iniciar la página
     loadProgress();
 
-    // --- LÓGICA DEL CALENDARIO ---
-
-    const date = new Date(); // Fecha actual
+    // --- CALENDAR LOGIC ---
+    const date = new Date();
+    const monthDaysContainer = document.getElementById('month-days');
 
     const renderCalendar = () => {
-        date.setDate(1); // Fija la fecha al primer día del mes actual
+        date.setDate(1);
 
-        const monthDays = document.querySelector('.days');
         const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
         const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
         
-        // El primer día de la semana (Lunes=1, Domingo=0. Ajustamos para que Lunes sea 0)
         let firstDayIndex = date.getDay();
-        if (firstDayIndex === 0) { // Si es Domingo (0), lo pasamos a 6
+        if (firstDayIndex === 0) { // Sunday (0) becomes 6
             firstDayIndex = 6;
-        } else { // Si es Lunes (1) a Sábado (6), restamos 1
+        } else { // Monday (1) to Saturday (6) become 0 to 5
             firstDayIndex -= 1; 
         }
 
         const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
-        
-        // Días que se mostrarán del siguiente mes (Ajuste para que Domingo (0) sea 7)
         const nextDays = (lastDayIndex === 0) ? 0 : 7 - lastDayIndex;
 
-        // Opciones para formatear el mes en español
+        // Change language to English (en-US)
         const monthOptions = { month: 'long' };
-        const monthName = date.toLocaleDateString('es-ES', monthOptions);
+        const monthName = date.toLocaleDateString('en-US', monthOptions);
 
-        // Actualiza el texto del mes y año
         document.getElementById('month-name').innerText = monthName;
         document.getElementById('date-str').innerText = date.getFullYear().toString();
 
         let daysHTML = "";
 
-        // Días del mes anterior
+        // Previous month's days
         for (let x = firstDayIndex; x > 0; x--) {
             daysHTML += `<li class="empty">${prevLastDay - x + 1}</li>`;
         }
 
-        // Días del mes actual
+        // Current month's days
         const today = new Date();
         for (let i = 1; i <= lastDay; i++) {
-            // Comprueba si este día es 'hoy'
-            if (
-                i === today.getDate() &&
-                date.getMonth() === today.getMonth() &&
-                date.getFullYear() === today.getFullYear()
-            ) {
-                daysHTML += `<li class="today">${i}</li>`;
-            } else {
-                daysHTML += `<li>${i}</li>`;
-            }
+            const isToday = i === today.getDate() &&
+                            date.getMonth() === today.getMonth() &&
+                            date.getFullYear() === today.getFullYear();
+            
+            // --- ¡NUEVA LÓGICA! ---
+            // Create a unique ID for each day to save its state
+            const dayID = `day-${date.getFullYear()}-${date.getMonth()}-${i}`;
+            // Check localStorage to see if this day was marked
+            const isStudyDay = localStorage.getItem(dayID) === 'true';
+
+            let classes = "";
+            if (isToday) classes += "today ";
+            if (isStudyDay) classes += "study-day";
+
+            // Add the id and classes to the li element
+            daysHTML += `<li id="${dayID}" class="${classes.trim()}">${i}</li>`;
         }
 
-        // Días del mes siguiente
+        // Next month's days
         for (let j = 1; j <= nextDays; j++) {
             daysHTML += `<li class="empty">${j}</li>`;
         }
 
-        monthDays.innerHTML = daysHTML;
+        monthDaysContainer.innerHTML = daysHTML;
     };
 
-    // Event listeners para los botones de mes previo/siguiente
+    // --- ¡NUEVA LÓGICA DE CLIC! ---
+    // Add click listener to the entire calendar days container
+    monthDaysContainer.addEventListener('click', (e) => {
+        // Check if the clicked element is an <li> and NOT an empty one
+        if (e.target.tagName === 'LI' && !e.target.classList.contains('empty')) {
+            // Toggle the 'study-day' class
+            e.target.classList.toggle('study-day');
+            
+            // Save the new state to localStorage
+            const dayID = e.target.id;
+            if (e.target.classList.contains('study-day')) {
+                localStorage.setItem(dayID, 'true');
+L            } else {
+                // If the class is removed, remove the item from storage
+                localStorage.removeItem(dayID);
+            }
+        }
+    });
+
+    // Event listeners for prev/next month buttons
     document.querySelector('.prev').addEventListener('click', () => {
         date.setMonth(date.getMonth() - 1);
         renderCalendar();
@@ -103,6 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCalendar();
     });
 
-    // Renderiza el calendario al cargar la página
+    // Initial render
     renderCalendar();
 });
