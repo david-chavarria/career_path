@@ -3,87 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Study Dashboard</title>
+    <title>My Career Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1>My Data Engineering Dashboard</h1>
+        <p>Your complete 10-month roadmap. All progress is saved automatically in your browser.</p>
+    </header>
 
     <div class="container">
-        <header>
-            <h1>My Data Engineering Dashboard</h1>
-        </header>
 
-        <main class="dashboard">
-            <section class="info-section">
-                <h2>Your 10-Month Roadmap</h2>
-                <p>This is your study plan focused on Web Scraping, Data Engineering, Data Science, and AI, studying three days per week.</p>
+        <div class="branch">
+            <h2>Phase 1: Foundations (Months 1-3)</h2>
+            <p><strong>Goal:</strong> Master the fundamentals of Python, SQL, and Git. Build your first portfolio project.</p>
+            
+            <div class="sub-branch">
+                <h3>1.1: Environment & Tools Setup</h3>
                 <ul>
-                    <li><strong>Months 1-3:</strong> Data Engineering Foundations (Python, SQL, Git, Portfolio).</li>
-                    <li><strong>Months 4-6:</strong> Automation & Cloud Computing (Apache Airflow, Cloud, Docker).</li>
-                    <li><strong>Months 7-10:</strong> Transition to Specialization (Machine Learning, NLP, Certification).</li>
+                    <li>
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Install Python 3.10+</label>
+                        <a href="https://www.python.org/downloads/" target="_blank">[Resource]</a>
+                        <textarea id="note1" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Install VS Code</label>
+                        <a href="https://code.visualstudio.com/" target="_blank">[Resource]</a>
+                        <textarea id="note2" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task3">
+                        <label for="task3">Install VS Code Python Extension (Pylance)</label>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank">[Resource]</a>
+                        <textarea id="note3" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task4">
+                        <label for="task4">Install Git</label>
+                        <a href="https://git-scm.com/downloads" target="_blank">[Resource]</a>
+                        <textarea id="note4" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task5">
+                        <label for="task5">Create GitHub Account</label>
+                        <a href="https://github.com/" target="_blank">[Resource]</a>
+                        <textarea id="note5" placeholder="e.g., My username is..."></textarea>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="checklist-section">
-                <h2>Master Progress Checklist</h2>
-                <ul id="checklist">
-                    <li><input type="checkbox" id="task1"><label for="task1">Python: Environment Setup (VS Code, Git)</label></li>
-                    <li><input type="checkbox" id="task2"><label for="task2">Python: Variables, Data Types, & Operators</label></li>
-                    <li><input type="checkbox" id="task3"><label for="task3">Python: Loops & Conditionals (for, while, if)</label></li>
-                    <li><input type="checkbox" id="task4"><label for="task4">Python: Functions & Structures (Lists, Dictionaries)</label></li>
-                    <li><input type="checkbox" id="task5"><label for="task5">Git: Basic Workflow (init, add, commit, push)</label></li>
-                    <li><input type="checkbox" id="task6"><label for="task6">Pandas: DataFrames (Reading, Selecting, Filtering)</label></li>
-                    <li><input type="checkbox" id="task7"><label for="task7">Pandas: Data Cleaning (Handling Nulls)</label></li>
-                    <li><input type="checkbox" id="task8"><label for="task8">SQL: Basic Syntax (SELECT, FROM, WHERE)</label></li>
-                    <li><input type="checkbox" id="task9"><label for="task9">SQL: Aggregations (GROUP BY, COUNT, SUM)</label></li>
-                    <li><input type="checkbox" id="task10"><label for="task10">SQL: Joins (INNER JOIN, LEFT JOIN)</label></li>
-                    <li><input type="checkbox" id="task11"><label for="task11">Project 1: Web Scraping (BeautifulSoup & Requests)</label></li>
-                    <li><input type="checkbox" id="task12"><label for="task12">Project 1: Clean & Load to DB (SQLite)</label></li>
-                    <li><input type="checkbox" id="task13"><label for="task13">Project 1: GitHub Documentation (README.md)</label></li>
-
-                    <li><input type="checkbox" id="task14"><label for="task14">Docker: Container Concepts (Dockerfile, build, run)</label></li>
-                    <li><input type="checkbox" id="task15"><label for="task15">Apache Airflow: Concepts (DAGs, Operators, Tasks)</label></li>
-                    <li><input type="checkbox" id="task16"><label for="task16">Cloud: Fundamentals (Choose provider: AWS, GCP, or Azure)</label></li>
-                    <li><input type="checkbox" id="task17"><label for="task17">Cloud: Storage (S3, GCS, Blob Storage)</label></li>
-                    <li><input type="checkbox" id="task18"><label for="task18">Project 2: Automated Data Pipeline</label></li>
-
-                    <li><input type="checkbox" id="task19"><label for="task19">Machine Learning: Concepts (Supervised vs. Unsupervised)</label></li>
-                    <li><input type="checkbox" id="task20"><label for="task20">Machine Learning: Scikit-Learn (Regression, Classification)</label></li>
-                    <li><input type="checkbox" id="task21"><label for="task21">NLP: Fundamentals (Tokenization, Vectorization)</label></li>
-                    <li><input type="checkbox" id="task22"><label for="task22">Project 3: ML or NLP Project</label></li>
-                    <li><input type="checkbox" id="task23"><label for="task23">Certification Prep (Cloud or Data)</label></li>
-                    <li><input type="checkbox" id="task24"><label for="task24">English: Daily Practice (20 mins)</label></li>
+            <div class="sub-branch">
+                <h3>1.2: Core Python Skills</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task6">
+                        <label for="task6">Python: Variables (Strings, Integers, Floats)</label>
+                        <a href="https://www.w3schools.com/python/python_variables.asp" target="_blank">[Resource]</a>
+                        <textarea id="note6" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task7">
+                        <label for="task7">Python: Data Structures (Lists)</label>
+                        <a href="https://www.w3schools.com/python/python_lists.asp" target="_blank">[Resource]</a>
+                        <textarea id="note7" placeholder="Indexing, slicing, methods..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task8">
+                        <label for="task8">Python: Data Structures (Dictionaries)</label>
+                        <a href="https://www.w3schools.com/python/python_dictionaries.asp" target="_blank">[Resource]</a>
+                        <textarea id="note8" placeholder="Key-value pairs, .get()..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task9">
+                        <label for="task9">Python: Control Flow (if, elif, else)</label>
+                        <a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank">[Resource]</a>
+                        <textarea id="note9" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task10">
+                        <label for="task10">Python: Loops (for, while)</label>
+                        <a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">[Resource]</a>
+                        <textarea id="note10" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task11">
+                        <label for="task11">Python: Functions (def, return, arguments)</label>
+                        <a href="https://www.w3schools.com/python/python_functions.asp" target="_blank">[Resource]</a>
+                        <textarea id="note11" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task12">
+                        <label for="task12">Python: File Handling (open, read, write)</label>
+                        <a href="https://www.w3schools.com/python/python_file_handling.asp" target="_blank">[Resource]</a>
+                        <textarea id="note12" placeholder="My notes..."></textarea>
+                    </li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="calendar-section">
-                <h2>Study Habit Tracker</h2>
-                <p class="instruction">Click on a day to mark it as a "Study Day".</p>
-                <div class="calendar">
-                    <div class="month">
-                        <i class="prev">&#10094;</i>
-                        <div class="date">
-                            <h1 id="month-name"></h1>
-                            <p id="date-str"></p>
-                        </div>
-                        <i class="next">&#10095;</i>
-                    </div>
-                    <ul class="weekdays">
-                        <li>Mon</li>
-                        <li>Tue</li>
-                        <li>Wed</li>
-                        <li>Thu</li>
-                        <li>Fri</li>
-                        <li>Sat</li>
-                        <li>Sun</li>
-                    </ul>
-                    <ul classs="days" id="month-days">
-                        </ul>
-                </div>
-            </section>
-        </main>
-    </div>
+            <div class="sub-branch">
+                <h3>1.3: Git & GitHub Skills</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task13">
+                        <label for="task13">Git: `git init`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note13" placeholder="Initializes a new repository."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task14">
+                        <label for="task14">Git: `git status`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note14" placeholder="Checks the state of the repo."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task15">
+                        <label for="task15">Git: `git add .`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note15" placeholder="Stages all files for commit."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task16">
+                        <label for="task16">Git: `git commit -m "message"`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note16" placeholder="Saves a snapshot of the code."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task17">
+                        <label for="task17">Git: `git push`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note17" placeholder="Uploads local commits to GitHub."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task18">
+                        <label for="task18">Git: `git pull`</label>
+                        <a href="https://github.com/skills" target="_blank">[Resource]</a>
+                        <textarea id="note18" placeholder="Downloads remote changes."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task19">
+                        <label for="task19">Git: Branching (`git branch name`, `git checkout -b name`)</label>
+                        <a href="https://www.atlassian.com/git/tutorials/using-branches" target="_blank">[Resource]</a>
+                        <textarea id="note19" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task20">
+                        <label for="task20">Git: Merging (`git merge branchname`)</label>
+                        <a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge" target="_blank">[Resource]</a>
+                        <textarea id="note20" placeholder="My notes..."></textarea>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sub-branch">
+                <h3>1.4: SQL Skills</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task21">
+                        <label for="task21">SQL: `SELECT`, `FROM`, `WHERE`</label>
+                        <a href="https://sqlbolt.com/lesson/select_queries_with_constraints" target="_blank">[Resource]</a>
+                        <textarea id="note21" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task22">
+                        <label for="task22">SQL: `ORDER BY`, `LIMIT`</label>
+                        <a href="https://sqlbolt.com/lesson/filtering_sorting_query_results" target="_blank">[Resource]</a>
+                        <textarea id="note22" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task23">
+                        <label for="task23">SQL: `GROUP BY`</label>
+                        <a href="https://sqlbolt.com/lesson/select_queries_with_aggregates" target="_blank">[Resource]</a>
+                        <textarea id="note23" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task24">
+                        <label for="task24">SQL: Aggregate Functions (`COUNT`, `SUM`, `AVG`)</label>
+                        <a href="https://www.w3schools.com/sql/sql_count_avg_sum.asp" target="_blank">[Resource]</a>
+                        <textarea id="note24" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task25">
+                        <label for="task25">SQL: `INNER JOIN`</label>
+                        <a href="https://sqlbolt.com/lesson/select_queries_with_joins" target="_blank">[Resource]</a>
+                        <textarea id="note25" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task26">
+                        <label for="task26">SQL: `LEFT JOIN` / `RIGHT JOIN`</label>
+                        <a href="https://www.w3schools.com/sql/sql_join_left.asp" target="_blank">[Resource]</a>
+                        <textarea id="note26" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task27">
+                        <label for="task27">SQL: `CREATE TABLE`, `INSERT INTO`</label>
+                        <a href="https://www.w3schools.com/sql/sql_create_table.asp" target="_blank">[Resource]</a>
+                        <textarea id="note27" placeholder="My notes..."></textarea>
+                    </li>
+                </ul>
+            </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            <div class="sub-branch">
+                <h3>1.5: Python for Data (Pandas)</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task28">
+                        <label for="task28">Pandas: Series and DataFrames</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note28" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task29">
+                        <label for="task29">Pandas: Reading Data (`read_csv`, `read_json`)</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note29" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task30">
+                        <label for="task30">Pandas: Inspecting Data (`.head()`, `.info()`, `.describe()`)</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note30" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task31">
+                        <label for="task31">Pandas: Selection & Filtering (`loc`, `iloc`, boolean)</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note31" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task32">
+                        <label for="task32">Pandas: Handling Missing Data (`.isnull()`, `.fillna()`)</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note32" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task33">
+                        <label for="task33">Pandas: Grouping (`.groupby()`, `.agg()`)</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note33" placeholder="My notes..."></textarea>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sub-branch">
+                <h3>1.6: Project 1 - Web Scraper & Analysis</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task34">
+                        <label for="task34">Project 1: Define Scope (e.g., scrape book data, news headlines)</label>
+                        <a href="https://realpython.com/beautiful-soup-web-scraper-python/" target="_blank">[Resource]</a>
+                        <textarea id="note34" placeholder="Idea: Scrape job listings for 'Data Engineer'"></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task35">
+                        <label for="task35">Project 1: Check `robots.txt` for permission</label>
+                        <a href="https://www.robotstxt.org/robotstxt.html" target="_blank">[Resource]</a>
+                        <textarea id="note35" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task36">
+                        <label for="task36">Project 1: Use `requests` to fetch HTML</label>
+                        <a href="https://www.w3schools.com/python/module_requests.asp" target="_blank">[Resource]</a>
+                        <textarea id="note36" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task37">
+                        <label for="task37">Project 1: Parse HTML with `BeautifulSoup`</label>
+                        <a href="https://www.w3schools.com/python/python_beautifulsoup.asp" target="_blank">[Resource]</a>
+                        <textarea id="note37" placeholder="find(), find_all() with tags and classes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task38">
+                        <label for="task38">Project 1: Extract data and clean with Pandas</label>
+                        <a href="https://www.kaggle.com/learn/pandas" target="_blank">[Resource]</a>
+                        <textarea id="note38" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task39">
+                        <label for="task39">Project 1: Load data into an SQLite database</label>
+                        <a href="https://www.w3schools.com/sql/sql_python.asp" target="_blank">[Resource]</a>
+                        <textarea id="note39" placeholder="My notes..."></textarea>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task40">
+                        <label for="task40">Project 1
