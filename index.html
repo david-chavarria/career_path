@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Panel de Estudio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mi Panel de Estudio: Ingeniería de Datos</h1>
+        </header>
+
+        <main class="dashboard">
+            <section class="info-section">
+                <h2>Tu Hoja de Ruta (10 Meses)</h2>
+                <p>Este es tu plan de estudio enfocado en Web Scraping, Ingeniería de Datos, Ciencia de Datos e IA, estudiando tres días a la semana.</p>
+                <ul>
+                    <li><strong>Meses 1-3:</strong> Fundamentos de Ingeniería de Datos (Python, SQL, Git, Portafolio).</li>
+                    <li><strong>Meses 4-6:</strong> Automatización y Cloud Computing (Apache Airflow, Cloud, Docker).</li>
+                    <li><strong>Meses 7-10:</strong> Transición a la Especialización (Machine Learning, NLP, Certificación).</li>
+                </ul>
+            </section>
+
+            <section class="checklist-section">
+                <h2>Checklist de Progreso</h2>
+                <ul id="checklist">
+                    <li><input type="checkbox" id="task1"><label for="task1">Python: Configuración de Entorno (VS Code, Git)</label></li>
+                    <li><input type="checkbox" id="task2"><label for="task2">Python: Variables, Tipos de Datos y Operadores</label></li>
+                    <li><input type="checkbox" id="task3"><label for="task3">Python: Bucles y Condicionales (for, while, if)</label></li>
+                    <li><input type="checkbox" id="task4"><label for="task4">Python: Funciones y Estructuras (Listas, Diccionarios)</label></li>
+                    <li><input type="checkbox" id="task5"><label for="task5">Git: Flujo Básico (init, add, commit, push)</label></li>
+                    <li><input type="checkbox" id="task6"><label for="task6">Pandas: DataFrames (Lectura, Selección, Filtrado)</label></li>
+                    <li><input type="checkbox" id="task7"><label for="task7">Pandas: Limpieza de Datos (Valores Nulos)</label></li>
+                    <li><input type="checkbox" id="task8"><label for="task8">SQL: Sintaxis Básica (SELECT, FROM, WHERE)</label></li>
+                    <li><input type="checkbox" id="task9"><label for="task9">SQL: Agregaciones (GROUP BY, COUNT, SUM)</label></li>
+                    <li><input type="checkbox" id="task10"><label for="task10">SQL: Uniones (INNER JOIN, LEFT JOIN)</label></li>
+                    <li><input type="checkbox" id="task11"><label for="task11">Proyecto 1: Web Scraping (BeautifulSoup & Requests)</label></li>
+                    <li><input type="checkbox" id="task12"><label for="task12">Proyecto 1: Limpieza y Carga a BBDD (SQLite)</label></li>
+                    <li><input type="checkbox" id="task13"><label for="task13">Proyecto 1: Documentación en GitHub (README.md)</label></li>
+
+                    <li><input type="checkbox" id="task14"><label for="task14">Docker: Entender Contenedores (Dockerfile, build, run)</label></li>
+                    <li><input type="checkbox" id="task15"><label for="task15">Apache Airflow: Conceptos (DAGs, Operadores, Tareas)</label></li>
+                    <li><input type="checkbox" id="task16"><label for="task16">Cloud: Fundamentos (Elegir un proveedor: AWS, GCP o Azure)</label></li>
+                    <li><input type="checkbox" id="task17"><label for="task17">Cloud: Almacenamiento (S3, GCS, Blob Storage)</label></li>
+                    <li><input type="checkbox" id="task18"><label for="task18">Proyecto 2: Pipeline de Datos Automatizado</label></li>
+
+                    <li><input type="checkbox" id="task19"><label for="task19">Machine Learning: Conceptos (Supervisado vs No Supervisado)</label></li>
+                    <li><input type="checkbox" id="task20"><label for="task20">Machine Learning: Scikit-Learn (Regresión, Clasificación)</label></li>
+                    <li><input type="checkbox" id="task21"><label for="task21">NLP: Fundamentos (Tokenización, Vectorización)</label></li>
+                    <li><input type="checkbox" id="task22"><label for="task22">Proyecto 3: Proyecto de ML o NLP</label></li>
+                    <li><input type="checkbox" id="task23"><label for="task23">Preparación para Certificación (Cloud o Datos)</label></li>
+                    <li><input type="checkbox" id="task24"><label for="task24">Inglés: Práctica diaria (20 mins)</label></li>
+                </ul>
+            </section>
+
+            <section class="calendar-section">
+                <h2>Calendario de Estudio</h2>
+                <div class="calendar">
+                    <div class="month">
+                        <i class="prev">&#10094;</i>
+                        <div class="date">
+                            <h1 id="month-name"></h1>
+                            <p id="date-str"></p>
+                        </div>
+                        <i class="next">&#10095;</i>
+                    </div>
+                    <ul class="weekdays">
+                        <li>Lun</li>
+                        <li>Mar</li>
+                        <li>Mié</li>
+                        <li>Jue</li>
+                        <li>Vie</li>
+                        <li>Sáb</li>
+                        <li>Dom</li>
+                    </ul>
+                    <ul class="days">
+                        </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

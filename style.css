@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.info-section,
+.checklist-section,
+.calendar-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Hacer que el calendario ocupe toda la columna */
+.calendar-section {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+}
+
+h2 {
+    color: #16a085;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+/* Estilos del Checklist */
+.checklist-section ul {
+    list-style: none;
+    max-height: 300px; /* Altura máxima para evitar que sea muy largo */
+    overflow-y: auto; /* Scroll si es necesario */
+}
+
+.checklist-section li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.checklist-section input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.2); /* Hacer el checkbox un poco más grande */
+}
+
+.checklist-section label {
+    font-size: 0.95rem;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.checklist-section input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Estilos del Calendario */
+.calendar {
+    width: 100%;
+}
+
+.month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #16a085;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+.month .prev, .month .next {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.month .prev:hover, .month .next:hover {
+    transform: scale(1.1);
+}
+
+.month .date h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.month .date p {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    font-weight: 700;
+    color: #555;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    background-color: #eee;
+    padding: 2px;
+}
+
+.weekdays li, .days li {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.days li {
+    background-color: #fff;
+    min-height: 70px; /* Altura de las celdas */
+    transition: background-color 0.2s;
+}
+
+.days li:hover {
+    background-color: #f0f0f0;
+}
+
+.days .today {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: 700;
+}
+
+.days .empty {
+    background-color: #fafafa;
+    opacity: 0.7;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 900px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    .calendar-section {
+        grid-row: auto;
+        grid-column: auto;
+    }
+}
